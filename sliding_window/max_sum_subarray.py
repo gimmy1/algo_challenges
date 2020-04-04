@@ -6,7 +6,7 @@ Output: 9
 
 Explanation: Subarray with maximum sum is [5, 1, 3].
 """
-def max_sum_sub_array_sum(arr, k):
+def max_sum_subarray_sum(arr, k):
     right = 0
     sub_sum = 0
     sub_sums = list()
@@ -25,8 +25,8 @@ def max_sum_sub_array_sum(arr, k):
     return max(sub_sums)
 
 if __name__ == "__main__":
-    print(max_sum_sub_array_sum([2, 1, 5, 1, 3, 2], 3))
-    print(max_sum_sub_array_sum([2, 3, 4, 1, 5], 2))
+    print(max_sum_subarray_sum([2, 1, 5, 1, 3, 2], 3))
+    print(max_sum_subarray_sum([2, 3, 4, 1, 5], 2))
 
 
 
