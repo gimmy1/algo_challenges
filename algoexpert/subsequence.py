@@ -5,7 +5,7 @@ def isValidSubsequence(array, sequence):
     while ix < len(array) and jx < len(sequence):
         while array[ix] != sequence[jx]:
             ix += 1
-        
+    
         if array[ix] == sequence[jx]:
             jx += 1
             count += 1
