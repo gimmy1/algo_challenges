@@ -1,105 +1,86 @@
 class Node:
-    def __init__(self, value):
-        self.value = value
-        self.left = None
-        self.right = None
-    
-    def insert(self, value):
-        if value < self.value:
-            if self.left: # first check if there is a left
-                return self.left.insert(value)
-            else:
-                self.left = Node(value)
-                return
-        else:
-            if self.right:
-                return self.right.insert(value)
-            else:
-                self.right = Node(value)
-                return
+	def __init__(self, v):
+		self.v = v
+		self.left = None
+		self.right = None
 	
-    def search(self, value): 
-	    if value < self.value:
-	    	if self.left:
-		    	return self.left.search(value)
-		    else:
-			    return False
+	def insert(self, v):
+		if v < self.v:
+			if self.left:
+				return self.left.insert(v)
+			else:
+				self.left = Node(v)
+				return
+		else: # input value is larger
+			if self.right:
+				return self.right.insert(v)
+			else:
+				self.right = Node(v)
+				return
+
+	def search(self, v):
+		if v < self.v:
+			if self.left:
+				return self.left.search(v)
+			else:
+				return False
 		else:
 			if self.right:
-				return self.right.search(value)
+				return self.right.search(v)
 			else:
-				return True
-	
-	def delete(self, value):
-		if value < self.value:
+				return False
+
+	def remove(self, v):
+		if v < self.v:
 			if self.left:
-				self.left = self.left.delete(value)
+				self.left.remove(v)
 			else:
 				return None
-		elif value > self.value:
+		elif v > self.v:
 			if self.right:
-				self.right = self.right.delete(value)
+				self.right.remove(v)
 			else:
 				return None
-		else: # found the bum to be deleted
-			if self.left is None and self.right is None: # no children
-				return None
-			elif self.left is None: # deleting a Node with a right child
-				tmp = self.right
-				self = None
-				return tmp
-			elif self.right is None:
-				tmp = self.left
-				self = None
-				return tmp
-			else:
-				current = self.right
-				while current.left:
-					current = current.left
-				self.value = current.value
-				self.right = self.right.delete(current.value)
-		return self
 		
+		if self.left is None and self.right is None: # is a left Node
+			self.v = None
+		elif self.left is None: # only a right child
+			curr = self.v
+			self.v = self.right.v
+			return curr
+		elif self.right is None:
+			curr = self.v
+			self.v = self.left.v
+			return curr
+		else:
+			while self.right:
+				curr = self.right
+			self.v = curr.v
+			self.right = self.right.delete(curr.value)
+		return self
 
 class BST:
-    def __init__(self, value):
-        self.root = Node(value)
+	def __init__(self):
+		self.root = None
 
-    def insert(self, value):
-        if self.root:
-            self.root.insert(value)
-        else:
-            self.root = Node(value)
-            return True
+	def insert(self, v):
+		if self.root:
+			return self.root.insert(v)
+		self.root = Node(v)
+		return
 	
-    def search(self, value):
-	    if self.root:
-			return self.root.search(value)
-		else:
-			return False
-	
-	def delete(self, value):
-		if self.root is not None:
-			self.root = self.root.delete(value)
-	
-				
-    def get_min_value(self):
-        pass
-		
-if __name__ == "__main__":
-    bst = BST(6)
-	bst.insert(3)
-	bst.insert(2)
-	bst.insert(4)
-	bst.insert(-1)
-	bst.insert(1)
-	bst.insert(-2)
-	bst.insert(8)
-	bst.insert(7)
+	def search(self, v):
+		if self.root:
+			return self.root.search(v)
+		return False
 
-	print("before deletion:")
-	display(bst.root)
-
-	bst.delete(10)
-	print("after deletion:")
-	display(bst.root)
+	def remove(self, v):
+		# 6 scenarios
+		# a. no root
+		# b. no child
+		# c. child
+			# -> only left child
+			# -> only right child
+				# -> two children
+		if self.root:
+			self.root.remove(v)
