@@ -121,6 +121,7 @@ if __name__ == "__main__":
     dll.insert_before(13, 5)
     dll.insert_after(10, 5)
     dll.insert_at_position(3, 99)
+    dll.remove_node_with_value(99)
     print(dll.contains_node_with_value(99))
     dll.print_it_out()
 

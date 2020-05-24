@@ -59,6 +59,8 @@ class Node:
             self.v = current.v
             return
 
+    def find_closest(self, v):
+        pass
         
 
 
@@ -83,3 +85,9 @@ class BinarySearchTree:
     def remove(self, v):
         if self.root:
             return self.root.remove(v)
+        return None
+        
+    def find_closest(self, v):
+        if self.root:
+            return self.root.find_closest(v)
+        return None

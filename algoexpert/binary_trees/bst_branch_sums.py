@@ -19,7 +19,6 @@ class Node:
                 return
     
     def branch_sums(self):
-        import pdb; pdb.set_trace()
         if self.left is None and self.right is None:
             pass
         return (self.v + self.left.branch_sums() + self.left.branch_sums())
