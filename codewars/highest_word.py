@@ -23,8 +23,5 @@ def highest_word(s):
         index = i
     return word
 
-        
-
-
 if __name__ == "__main__":
     print(highest_word('man i need a taxi up to ubud'))
