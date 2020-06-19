@@ -18,7 +18,6 @@ def count_say_sequence(sequence):
         
     return sequences.pop()
     
-
         
 if __name__ == "__main__":
     print(count_say_sequence(6))
