@@ -13,9 +13,6 @@ def flatten_map(dictionary, nstr="", level=1):
             new_dictionary[nstr] = v
     return new_dictionary
 
-        
-
-
 if __name__ == "__main__":
     dictionary = {
         "a": {

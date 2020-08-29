@@ -4,8 +4,6 @@ def parts_sums(ls):
     sums = [0] * (len(ls) + 1)
     ji = len(sums) - 1
     while ji > 0:
-        # OKAY THEN
-        # import pdb; pdb.set_trace()
         parts = ls[i] + sums[ji]
         sums[i] = parts
         i -= 1
