@@ -10,6 +10,6 @@ class Node:
     
     def dfs(self, array):
         array.append(self.name)
-        for chid in self.children:
+        for child in self.children:
             child.dfs(child)
         return array

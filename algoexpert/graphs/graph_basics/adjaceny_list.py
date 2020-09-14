@@ -10,4 +10,4 @@ lovers = defaultdict(list)
 for source, target in love_connections:
     lovers[source].append(target)
 
-print(lovers)
+print(lovers) 
