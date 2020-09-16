@@ -4,8 +4,10 @@ love_connections = [("Lysander", "Helena"), ("Hermia", "Lysander"), ("Demetrius"
                     ("Helena", "Demetrius"), ("Titania", "Oberon"), ("Oberon", "Titania"),
                     ("Puck", "Puck"), ("Lysander", "Puck"), ("Helena", "Titania")]
 
+
+# What is breadth-first?
+# In contrast to DFS --> we explore all neighbors before moving on
 def BFS(adj_list, source, target):
-    # FIND lydia
     Q = Queue()
     Q.put(source)
     seen = set()
@@ -13,10 +15,10 @@ def BFS(adj_list, source, target):
         current = Q.get()
         if current == target:
             return True
-        for neighbor in adj_list[current]:
+        for neighbor in adj_list[neighbor]:
             if neighbor not in seen:
-                seen.add(neighbor) # (Lysander, )
-                Q.put(neighbor) # ["Lysander"]
+                seen.add(neighbor)
+                Q.put(neighbor)
     return False
 
 
