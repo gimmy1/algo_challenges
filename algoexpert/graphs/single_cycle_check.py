@@ -9,17 +9,18 @@ def hasSingleCycle(List):
     return cycle_check == List
 
 def hasSingleCycle2(List):
-    visited = [False] * len(List)
+    visited = [0] * len(List)
     _DFS(0, visited, List, 1) # pass in idx, visited, List
-    return all(visited)
+    return all(ele == 1 for ele in visited)
 
 def _DFS(idx, visited, List, count):
-    if count > len(List): return False
-    visited[idx] = True
+    if count > len(List): return
     _jmp = (idx + List[idx]) % len(List)
     if not visited[_jmp]:
+        visited[_jmp] += 1
         count += 1
         _DFS(_jmp, visited, List, count)
+    return
 
 
     
