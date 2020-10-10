@@ -14,10 +14,10 @@ def validate_rows(board):
 
 def validate_cols(board):
     valid_cols = []
-    for row in board:
+    for row in range(len(board)):
         cols = []
-        for co in range(len(row)):
-            cols.append(row[co])
+        for co in range(len(board)):
+            cols.append(board[co][row])
         valid_cols.append(checkers(cols))
     return all(valid_cols)
 
@@ -64,5 +64,16 @@ if __name__ == "__main__":
         [".",".",".","4","1","9",".",".","5"],
         [".",".",".",".","8",".",".","7","9"]
     ]
-    print(validate_sudoku(BOARD))
+
+    BOARD2 = [
+        [".",".","4",".",".",".","6","3","."],
+        [".",".",".",".",".",".",".",".","."],
+        ["5",".",".",".",".",".",".","9","."],
+        [".",".",".","5","6",".",".",".","."],
+        ["4",".","3",".",".",".",".",".","1"],
+        [".",".",".","7",".",".",".",".","."],
+        [".",".",".","5",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."],
+        [".",".",".",".",".",".",".",".","."]]
+    print(validate_sudoku(BOARD2))
 
