@@ -1,12 +1,12 @@
-def riverSizes(matrix):
+def river_sizes(matrix):
     # Write your code here.
     sizes = []
-	visited = [[False for value in row] for row in matrix]
-	for row in range(len(matrix)):
-		for col in range(len(matrix[row])):
-			if not visited[row][col]:
-				traverse_node(row, col, matrix, visited, sizes)
-	return sizes
+    visited = [[False for value in row] for row in matrix]
+    for row in range(len(matrix)):
+        for col in range(len(matrix[row])):
+            if not visited[row][col]:
+                traverse_node(row, col, matrix, visited, sizes)
+    return sizes
 
 def traverse_node(row, col, matrix, visited, sizes):
 	river_size = 0
@@ -48,4 +48,4 @@ if __name__ == "__main__":
         [0, 0, 1, 0, 1],
         [1, 0, 1, 0, 1],
         [1, 0, 1, 1, 0]]
-    river_sizes(matrix)
+    print(river_sizes(matrix))
